@@ -56,3 +56,4 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'devise'
 gem 'acts_as_votable', '~> 0.10.0'
 gem "font-awesome-rails"
+gem 'simple_form'
