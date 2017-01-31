@@ -2,7 +2,7 @@
 <div>
   <h2>
     <%= link_to link.title, link %><br>
-    <small class="text-muted">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.email %></small><br>
+    <small class="text-muted">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.name %></small><br>
     <div class="btn-group">
     	<%= link_to 'Visit link', link.url, class: "btn btn-secondary btn-sm" %>
       <%= link_to like_link_path(link), method: :put, class: "btn btn-secondary btn-sm" do %>
