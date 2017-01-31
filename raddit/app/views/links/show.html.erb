@@ -16,10 +16,12 @@
 
 <div class="btn-group float-right">
 <%= link_to like_link_path(@link), method: :put, class: "btn btn-secondary btn-sm" do %>
+<%= fa_icon "caret-up" %>
 Upvote
 <%= @link.get_upvotes.size %>
 <% end %>
 <%= link_to dislike_link_path(@link), method: :put, class: "btn btn-secondary btn-sm" do %>
+<%= fa_icon "caret-down" %>
 Downvote
 <%= @link.get_downvotes.size %>
 <% end %>

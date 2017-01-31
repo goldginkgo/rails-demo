@@ -6,10 +6,14 @@
     <div class="btn-group">
     	<%= link_to 'Visit link', link.url, class: "btn btn-secondary btn-sm" %>
       <%= link_to like_link_path(link), method: :put, class: "btn btn-secondary btn-sm" do %>
-      Upvote <%= link.get_upvotes.size %>
+      <%= fa_icon "caret-up" %>
+      Upvote
+      <%= link.get_upvotes.size %>
       <% end %>
       <%= link_to dislike_link_path(link), method: :put, class: "btn btn-secondary btn-sm" do %>
-      Downvote <%= link.get_downvotes.size %>
+      <%= fa_icon "caret-up" %>
+      Downvote
+      <%= link.get_downvotes.size %>
       <% end %>
     </div>
   <h2>
