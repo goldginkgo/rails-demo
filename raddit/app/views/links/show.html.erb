@@ -26,3 +26,16 @@ Downvote
 <%= @link.get_downvotes.size %>
 <% end %>
 </div>
+
+<h3>
+  <%= pluralize(@link.comments.count, 'comment') %>
+</h3>
+
+<div>
+  <%= render @link.comments %>
+</div>
+
+<%= simple_form_for([@link, Comment.new], html: { class: 'form-horizontal' }) do |f| %>
+<%=   f.text_area :body, class: "form-control" %><br>
+<%=   f.submit "Add comment", class: "btn btn-primary" %>
+<%  end %>
