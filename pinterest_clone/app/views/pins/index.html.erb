@@ -1,11 +1,11 @@
-<div class="card-deck">
+<div id="pins">
   <% @pins.each do |pin| %>
-  <div class="card">
-    <%= link_to pin_path(pin) do %>
-      <%= image_tag pin.image.url(:medium), class: "card-image-top" %>
+  <div class="card box">
+    <%= link_to pin do %>
+      <%= image_tag pin.image.url, class: "card-image-top" %>
     <% end %>
     <div class="card-block">
-      <h4 class="card-title"><%= pin.title %></h4>
+      <h4 class="card-title"><%= link_to pin.title, pin %></h4>
     </div>
     <div class="card-footer">
       <small class="text-muted">Submitted by <%= pin.user.email %></small>

@@ -1,16 +1,22 @@
-<p>
-  <strong>Title:</strong>
-  <%= @pin.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @pin.description %>
-</p>
-
-<p>
-  <%= image_tag @pin.image.url(:medium)%>
-</p>
-
-<%= link_to 'Edit', edit_pin_path(@pin) %> |
-<%= link_to 'Back', pins_path %>
+<div class="row" id="pin_show">
+  <div class="col-md-8 offset-md-2">
+    <div class="card-group">
+      <div class="card">
+        <div id="pin_image">
+          <%= image_tag @pin.image.url(:medium), class: "card-image-top" %>
+        </div>
+        <div class="card-block">
+          <h4 class="card-title"><%= @pin.title %></h4>
+          <%= @pin.description %>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Submitted by <%= @pin.user.email %></small>
+          <% if @pin.user = current_user %>
+          <%= link_to 'Edit', edit_pin_path(@pin) %> |
+          <%= link_to 'Back', pins_path %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
