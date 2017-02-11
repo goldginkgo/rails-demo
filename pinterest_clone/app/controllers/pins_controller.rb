@@ -65,7 +65,7 @@ class PinsController < ApplicationController
 
   def vote_for
     @pin.liked_by current_user
-    redirect_to @pin
+    redirect_back fallback_location:  pins_url
   end
 
   private
