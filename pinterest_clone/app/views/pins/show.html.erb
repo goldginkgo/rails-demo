@@ -11,10 +11,13 @@
         </div>
         <div class="card-footer">
           <small class="text-muted">Submitted by <%= @pin.user.email %></small>
-          <% if @pin.user = current_user %>
-          <%= link_to 'Edit', edit_pin_path(@pin) %> |
-          <%= link_to 'Back', pins_path %>
-          <% end %>
+          <div class="btn-group float-right">
+            <%= link_to vote_for_pin_path(@pin), method: :patch, class: 'btn btn-secondary' do %>
+            <%=   fa_icon 'heart' %><%= @pin.votes_for.size %>
+            <% end %>
+            <%= link_to 'Edit', edit_pin_path(@pin), class: 'btn btn-secondary' %>
+            <%= link_to 'Destroy', pin_path(@pin), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-secondary' %>
+          </div>
         </div>
       </div>
     </div>

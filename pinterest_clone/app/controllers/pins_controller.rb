@@ -1,6 +1,6 @@
 class PinsController < ApplicationController
-  before_action :set_pin, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_pin, only: [:show, :edit, :update, :destroy, :vote_for]
+  before_action :authenticate_user!, except: [:index, :show, :vote_for]
   before_action :authorized_user?, only: [:edit, :update, :destroy]
 
   # GET /pins
@@ -61,6 +61,11 @@ class PinsController < ApplicationController
       format.html { redirect_to pins_url, notice: 'Pin was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def vote_for
+    @pin.liked_by current_user
+    redirect_to @pin
   end
 
   private
