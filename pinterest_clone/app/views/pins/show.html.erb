@@ -12,8 +12,9 @@
         <div class="card-footer">
           <small class="text-muted">Submitted by <%= @pin.user.email %></small>
           <div class="btn-group float-right">
-            <%= link_to vote_for_pin_path(@pin), method: :patch, class: 'btn btn-secondary' do %>
-            <%=   fa_icon 'heart' %><%= @pin.votes_for.size %>
+            <%= link_to vote_for_pin_path(@pin), method: :patch, remote: true, class: 'btn btn-secondary' do %>
+            <%=   fa_icon 'heart' %>
+            <span id="total_votes"><%= @pin.votes_for.size %></span>
             <% end %>
             <%= link_to 'Edit', edit_pin_path(@pin), class: 'btn btn-secondary' %>
             <%= link_to 'Destroy', pin_path(@pin), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-secondary' %>
